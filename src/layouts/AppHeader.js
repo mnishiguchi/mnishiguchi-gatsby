@@ -1,14 +1,13 @@
 import React from 'react'
-import { fade, makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import grey from '@material-ui/core/colors/grey'
 import IconButton from '@material-ui/core/IconButton'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
-import MoreIcon from '@material-ui/icons/MoreVert'
 import Toolbar from '@material-ui/core/Toolbar'
+import MoreIcon from '@material-ui/icons/MoreVert'
 
-// import BlogPostSearch from './BlogPostSearch'
 import I18nSwitcher from './I18nSwitcher'
 import {
   HomeLink,
@@ -16,6 +15,7 @@ import {
   TagsLink,
   GithubLink,
   LinkedinLink,
+  SearchLink,
 } from '../components/iconLinks'
 
 const useStyles = makeStyles((theme) => ({
@@ -38,43 +38,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('md')]: {
       maxWidth: theme.breakpoints.values['md'],
       margin: 'auto',
-    },
-  },
-  search: {
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
-    },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(3),
-      width: 'auto',
-    },
-  },
-  searchIcon: {
-    padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  inputRoot: {
-    color: 'inherit',
-  },
-  inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
     },
   },
   sectionDesktop: {
@@ -141,6 +104,9 @@ export default (props) => {
           </IconButton>
           <IconButton>
             <GithubLink />
+          </IconButton>
+          <IconButton>
+            <SearchLink />
           </IconButton>
 
           {/* Spacer */}

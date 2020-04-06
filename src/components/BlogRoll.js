@@ -10,6 +10,10 @@ import Typography from '@material-ui/core/Typography'
 import BlogTagLink from './BlogTagLink'
 
 const useStyles = makeStyles((theme) => ({
+  listItem: {
+    paddingLeft: 0,
+    paddingRight: 0,
+  },
   title: {
     marginBottom: theme.spacing(1.5),
     textDecoration: 'none',
@@ -35,7 +39,7 @@ function BlogRoll({ data: { allMarkdownRemark } }) {
     <List>
       {posts &&
         posts.map(({ node: { id, frontmatter, fields, excerpt } }) => (
-          <ListItem key={fields.slug}>
+          <ListItem key={fields.slug} className={classNames.listItem}>
             <ListItemText
               primary={
                 <Typography

@@ -4,6 +4,7 @@ import NoteIcon from '@material-ui/icons/Note'
 import LocalOfferIcon from '@material-ui/icons/LocalOffer'
 import LinkedinIcon from '@material-ui/icons/Linkedin'
 import GithubIcon from '@material-ui/icons/Github'
+import SearchIcon from '@material-ui/icons/Search'
 
 import AppLink from './AppLink'
 
@@ -34,5 +35,11 @@ export const BlogLink = (props) => (
 export const TagsLink = (props) => (
   <AppLink to="/tags" {...props}>
     <LocalOfferIcon />
+  </AppLink>
+)
+
+export const SearchLink = (props) => (
+  <AppLink to="/search" {...props}>
+    <SearchIcon />
   </AppLink>
 )

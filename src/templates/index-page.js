@@ -11,20 +11,23 @@ import AppContentContainer from '../components/AppContentContainer'
 import StackOverflowFlair from '../components/StackOverflowFlair'
 import BrandIconSlideshow from '../components/BrandIconSlideshow'
 
+const flexJustifyContentCenter = {
+  display: 'flex',
+  justifyContent: 'center',
+  textAlign: 'center',
+}
+
 const useStyles = makeStyles((theme) => ({
   header: {
     backgroundColor: theme.palette.primary.dark,
     paddingTop: '.8rem',
     paddingBottom: '.8rem',
     color: '#fff',
+    ...flexJustifyContentCenter,
   },
-  flexJustifyContentCenter: {
-    display: 'flex',
-    justifyContent: 'center',
-    textAlign: 'center',
-  },
-  spaceBetweenSections: {
+  section: {
     marginTop: '2rem',
+    ...flexJustifyContentCenter,
   },
   maxWidth600: {
     width: '100%',
@@ -39,12 +42,7 @@ export function IndexPageContent({ gmapUrl, mainImage, secondaryImage }) {
 
   return (
     <>
-      <header
-        className={[
-          classNames.header,
-          classNames.flexJustifyContentCenter,
-        ].join(' ')}
-      >
+      <header className={classNames.header}>
         <div style={{ maxWidth: '500px' }}>
           <h1>{t('author.name')}</h1>
           <h2>
@@ -58,36 +56,21 @@ export function IndexPageContent({ gmapUrl, mainImage, secondaryImage }) {
       </header>
 
       <AppContentContainer>
-        <section
-          className={[
-            classNames.flexJustifyContentCenter,
-            classNames.spaceBetweenSections,
-          ].join(' ')}
-        >
+        <section className={classNames.section}>
           <div>
             <Img fluid={mainImage.childImageSharp.fluid} />
             <br />
             <StackOverflowFlair theme="clean" width="300px" />
           </div>
         </section>
-        <section
-          className={[
-            classNames.flexJustifyContentCenter,
-            classNames.spaceBetweenSections,
-          ].join(' ')}
-        >
+        <section className={classNames.section}>
           <div className={classNames.maxWidth600}>
             <div>{t('pages.home.hobbies')}</div>
             <BrandIconSlideshow />
             <div>{t('pages.home.etc')}</div>
           </div>
         </section>
-        <section
-          className={[
-            classNames.flexJustifyContentCenter,
-            classNames.spaceBetweenSections,
-          ].join(' ')}
-        >
+        <section className={classNames.section}>
           <div className={classNames.maxWidth600}>
             <Img
               fluid={secondaryImage.childImageSharp.fluid}
