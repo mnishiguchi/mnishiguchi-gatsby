@@ -1,9 +1,10 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import TranslateIcon from '@material-ui/icons/Translate'
 import MenuItem from '@material-ui/core/MenuItem'
 import FormControl from '@material-ui/core/FormControl'
 import Select from '@material-ui/core/Select'
+
+import { TranslateIcon } from '../components/MaterialIcons'
 
 function I18nSwitcher() {
   const { i18n } = useTranslation()

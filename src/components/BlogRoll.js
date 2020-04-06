@@ -45,7 +45,7 @@ function BlogRoll({ data: { allMarkdownRemark } }) {
                 <Typography
                   component={Link}
                   to={fields.slug}
-                  variant="h4"
+                  variant="h5"
                   className={classNames.title}
                   color="textPrimary"
                 >

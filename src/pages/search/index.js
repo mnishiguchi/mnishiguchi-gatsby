@@ -1,8 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
 import { fade, makeStyles } from '@material-ui/core/styles'
-import ClearIcon from '@material-ui/icons/Clear'
-import SearchIcon from '@material-ui/icons/Search'
 import List from '@material-ui/core/List'
 import FormControl from '@material-ui/core/FormControl'
 import ListItem from '@material-ui/core/ListItem'
@@ -14,6 +11,7 @@ import GlobalLayout from '../../layouts/index'
 import AppContentContainer from '../../components/AppContentContainer'
 import AppLink from '../../components/AppLink'
 import useBlogPostSearch from '../../components/useBlogPostSearch'
+import { ClearIcon, SearchIcon } from '../../components/MaterialIcons'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -59,11 +57,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function SearchPage({
-  data: {
-    allMarkdownRemark: { group },
-  },
-}) {
+function SearchPage() {
   const classNames = useStyles()
   const { clearQuery, onSearch, query, suggestions } = useBlogPostSearch()
 
@@ -131,15 +125,3 @@ function SearchPage({
 }
 
 export default SearchPage
-
-// Currently unused.
-export const searchPageQuery = graphql`
-  query SearchQuery {
-    allMarkdownRemark(limit: 1000) {
-      group(field: frontmatter___tags) {
-        fieldValue
-        totalCount
-      }
-    }
-  }
-`

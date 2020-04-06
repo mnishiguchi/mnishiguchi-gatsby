@@ -1,5 +1,6 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import Typography from '@material-ui/core/Typography'
 
 import GlobalLayout from '../../layouts/index'
 import BlogRoll from '../../components/BlogRoll'
@@ -11,7 +12,10 @@ export default function BlogIndexPage() {
   return (
     <GlobalLayout>
       <AppContentContainer>
-        <h1>{t(`pages.blog.title`)}</h1>
+        <Typography component="h1" variant="h4">
+          {t(`pages.blog.title`)}
+        </Typography>
+
         <BlogRoll />
       </AppContentContainer>
     </GlobalLayout>

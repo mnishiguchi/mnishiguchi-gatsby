@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import Typography from '@material-ui/core/Typography'
 
 import GlobalLayout from '../layouts/index'
 import AppContentContainer from '../components/AppContentContainer'
@@ -14,7 +15,9 @@ function TagPage({ data: { site, allMarkdownRemark }, pageContext: { tag } }) {
   return (
     <GlobalLayout>
       <AppContentContainer>
-        <h1>{tagHeader}</h1>
+        <Typography component="h1" variant="h4">
+          {tagHeader}
+        </Typography>
         <ul>
           {posts.map(({ node: { fields, frontmatter } }) => (
             <li>

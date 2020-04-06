@@ -8,17 +8,16 @@ import { useTheme } from '@material-ui/core/styles'
 // https://www.gatsbyjs.org/docs/gatsby-link/
 const AppLink = ({ children, ...rest }) => {
   const theme = useTheme()
+  const baseConfig = {
+    color: 'secondary',
+    activeStyle: { color: theme.palette.secondary.light },
+  }
   return !!rest.href ? (
-    <MuiLink component={OutboundLink} {...rest}>
+    <MuiLink component={OutboundLink} {...baseConfig} {...rest}>
       {children}
     </MuiLink>
   ) : (
-    <MuiLink
-      component={GatsbyLink}
-      color="primary"
-      activeStyle={{ color: theme.palette.grey[600] }}
-      {...rest}
-    >
+    <MuiLink component={GatsbyLink} {...baseConfig} {...rest}>
       {children}
     </MuiLink>
   )

@@ -1,15 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { OutboundLink } from 'gatsby-plugin-google-analytics'
-import Img from 'gatsby-image' // https://www.gatsbyjs.org/packages/gatsby-image/
+import GatsbyImage from 'gatsby-image' // https://www.gatsbyjs.org/packages/gatsby-image/
 import { useTranslation } from 'react-i18next'
 import { makeStyles } from '@material-ui/core/styles'
+import Typography from '@material-ui/core/Typography'
 
 import GlobalLayout from '../layouts/index'
 import AppContentContainer from '../components/AppContentContainer'
 import StackOverflowFlair from '../components/StackOverflowFlair'
 import BrandIconSlideshow from '../components/BrandIconSlideshow'
+import AppLink from '../components/AppLink'
 
 const flexJustifyContentCenter = {
   display: 'flex',
@@ -20,10 +21,21 @@ const flexJustifyContentCenter = {
 const useStyles = makeStyles((theme) => ({
   header: {
     backgroundColor: theme.palette.primary.dark,
-    paddingTop: '.8rem',
-    paddingBottom: '.8rem',
+    paddingTop: '1.5rem',
+    paddingBottom: '2rem',
     color: '#fff',
     ...flexJustifyContentCenter,
+  },
+  headerTitle: {
+    marginBottom: `.6rem`,
+  },
+  headerProfession: {
+    marginBottom: `.6rem`,
+    fontSize: `1.2rem`,
+  },
+  headerLocation: {
+    color: '#bfe9d6',
+    fontSize: `1.2rem`,
   },
   section: {
     marginTop: '2rem',
@@ -44,21 +56,26 @@ export function IndexPageContent({ gmapUrl, mainImage, secondaryImage }) {
     <>
       <header className={classNames.header}>
         <div style={{ maxWidth: '500px' }}>
-          <h1>{t('author.name')}</h1>
-          <h2>
+          <Typography
+            component="h1"
+            variant="h4"
+            className={classNames.headerTitle}
+          >
+            {t('author.name')}
+          </Typography>
+          <div className={classNames.headerProfession}>
             {t('author.profession')}
-            <br />
-            <OutboundLink href={gmapUrl} style={{ color: '#fff' }}>
-              {t('author.location')}
-            </OutboundLink>
-          </h2>
+          </div>
+          <AppLink href={gmapUrl} className={classNames.headerLocation}>
+            {t('author.location')}
+          </AppLink>
         </div>
       </header>
 
       <AppContentContainer>
         <section className={classNames.section}>
           <div>
-            <Img fluid={mainImage.childImageSharp.fluid} />
+            <GatsbyImage fluid={mainImage.childImageSharp.fluid} />
             <br />
             <StackOverflowFlair theme="clean" width="300px" />
           </div>
@@ -72,7 +89,7 @@ export function IndexPageContent({ gmapUrl, mainImage, secondaryImage }) {
         </section>
         <section className={classNames.section}>
           <div className={classNames.maxWidth600}>
-            <Img
+            <GatsbyImage
               fluid={secondaryImage.childImageSharp.fluid}
               alt="Masatoshi Nishiguchi at Node DC"
             />

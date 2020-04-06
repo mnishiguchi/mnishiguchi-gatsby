@@ -1,6 +1,6 @@
 import React from 'react'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
-import green from '@material-ui/core/colors/green'
+import 'typeface-roboto' // https://material-ui.com/components/typography/#install-with-npm
 
 import AppHelmet from './AppHelmet'
 import AppFooter from './AppFooter'
@@ -16,11 +16,13 @@ export default ({ children }) => {
     palette: {
       primary: {
         // light: will be calculated from palette.primary.main,
-        main: '#1853a9',
+        main: '#071f31',
         // dark: will be calculated from palette.primary.main,
         // contrastText: will be calculated to contrast with palette.primary.main
       },
-      secondary: green,
+      secondary: {
+        main: '#41b883',
+      },
     },
     overrides: {},
   })
@@ -34,7 +36,8 @@ export default ({ children }) => {
       {/* A spacer for the content */}
       <div
         style={{
-          height: '3.5rem',
+          background: '#071f31',
+          height: '4.5rem',
         }}
       />
 

@@ -18,13 +18,3 @@ code {
 // https://prismjs.com/
 // https://github.com/PrismJS/prism/tree/master/themes
 @import "~prismjs/themes/prism-tomorrow.css";
-
-// Styling for headers from markdown blog posts.
-.blogPost  {
-  h2 {
-    margin-top: 2rem;
-  }
-  h3 {
-    margin-top: 1.5rem;
-  }
-}

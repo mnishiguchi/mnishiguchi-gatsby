@@ -6,17 +6,20 @@ import IconButton from '@material-ui/core/IconButton'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import Toolbar from '@material-ui/core/Toolbar'
-import MoreIcon from '@material-ui/icons/MoreVert'
 
 import I18nSwitcher from './I18nSwitcher'
+import { MoreVertIcon } from '../components/MaterialIcons'
+
 import {
-  HomeLink,
-  BlogLink,
-  TagsLink,
-  GithubLink,
-  LinkedinLink,
-  SearchLink,
-} from '../components/iconLinks'
+  HomeIcon,
+  NoteIcon,
+  LocalOfferIcon,
+  LinkedinIcon,
+  GithubIcon,
+  SearchIcon,
+} from '../components/MaterialIcons'
+
+import AppLink from '../components/AppLink'
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -51,6 +54,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('md')]: {
       display: 'none',
     },
+  },
+  appLink: {
+    color: theme.palette.grey[600],
   },
 }))
 
@@ -91,22 +97,40 @@ export default (props) => {
       <AppBar className={classNames.appBar}>
         <Toolbar className={classNames.toolbar}>
           <IconButton>
-            <HomeLink />
+            <AppLink to="/" className={classNames.appLink}>
+              <HomeIcon />
+            </AppLink>
           </IconButton>
           <IconButton>
-            <BlogLink />
+            <AppLink to="/blog" className={classNames.appLink}>
+              <NoteIcon />
+            </AppLink>
           </IconButton>
           <IconButton>
-            <TagsLink />
+            <AppLink to="/tags" className={classNames.appLink}>
+              <LocalOfferIcon />
+            </AppLink>
           </IconButton>
           <IconButton>
-            <LinkedinLink />
+            <AppLink
+              href="https://linkedin.com/in/mnishiguchi"
+              className={classNames.appLink}
+            >
+              <LinkedinIcon />
+            </AppLink>
           </IconButton>
           <IconButton>
-            <GithubLink />
+            <AppLink
+              href="https://github.com/mnishiguchi"
+              className={classNames.appLink}
+            >
+              <GithubIcon />
+            </AppLink>
           </IconButton>
           <IconButton>
-            <SearchLink />
+            <AppLink to="/search" className={classNames.appLink}>
+              <SearchIcon />
+            </AppLink>
           </IconButton>
 
           {/* Spacer */}
@@ -120,7 +144,7 @@ export default (props) => {
               aria-haspopup="true"
               onClick={handleMobileMenuOpen}
             >
-              <MoreIcon />
+              <MoreVertIcon />
             </IconButton>
           </div>
 

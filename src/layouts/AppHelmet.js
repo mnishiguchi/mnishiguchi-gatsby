@@ -27,9 +27,6 @@ export default (overrides) => {
       titleTemplate={`%s | ${siteTitle}`}
       defaultTitle={siteTitle}
       link={[
-        // https://material-ui.com/getting-started/installation/
-        { rel:"stylesheet", href: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" },
-        { rel:"stylesheet", href: "https://fonts.googleapis.com/icon?family=Material+Icons" },
         { rel: 'apple-touch-icon', sizes: '57x57', href: `${withPrefix('/')}img/apple-icon-57x57.png` },
         { rel: 'apple-touch-icon', sizes: '60x60', href: `${withPrefix('/')}img/apple-icon-60x60.png` },
         { rel: 'apple-touch-icon', sizes: '72x72', href: `${withPrefix('/')}img/apple-icon-72x72.png` },

@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import { useTranslation } from 'react-i18next'
 import { makeStyles } from '@material-ui/core/styles'
 import { useTheme } from '@material-ui/core/styles'
+import Typography from '@material-ui/core/Typography'
 
 import GlobalLayout from '../../layouts/index'
 import BlogTagLink from '../../components/BlogTagLink'
@@ -30,7 +31,10 @@ function TagsPage({
   return (
     <GlobalLayout>
       <AppContentContainer>
-        <h1>{t(`pages.tags.title`)}</h1>
+        <Typography component="h1" variant="h4">
+          {t(`pages.tags.title`)}
+        </Typography>
+
         <div className={classNames.blogTagLinkList}>
           {group.map((tag) => (
             <BlogTagLink
