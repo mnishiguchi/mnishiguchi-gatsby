@@ -11,13 +11,11 @@ const AppLink = ({ children, ...rest }) => {
   const baseConfig = {
     color: 'secondary',
     activeStyle: { color: theme.palette.secondary.light },
+    component: !!rest.href ? OutboundLink : GatsbyLink,
   }
-  return !!rest.href ? (
-    <MuiLink component={OutboundLink} {...baseConfig} {...rest}>
-      {children}
-    </MuiLink>
-  ) : (
-    <MuiLink component={GatsbyLink} {...baseConfig} {...rest}>
+
+  return (
+    <MuiLink {...baseConfig} {...rest}>
       {children}
     </MuiLink>
   )
