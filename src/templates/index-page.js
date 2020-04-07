@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export function IndexPageContent({ gmapUrl, mainImage, secondaryImage }) {
+export function IndexPageContent({ mainImage, secondaryImage }) {
   // https://react.i18next.com/latest/usetranslation-hook#usetranslation-params
   const { t } = useTranslation()
   const classNames = useStyles()
@@ -66,7 +66,10 @@ export function IndexPageContent({ gmapUrl, mainImage, secondaryImage }) {
           <div className={classNames.headerProfession}>
             {t('author.profession')}
           </div>
-          <AppLink href={gmapUrl} className={classNames.headerLocation}>
+          <AppLink
+            href={`https://www.google.com/maps/d/u/0/embed?mid=1VQHZbH9Elf3YIR0JCo9qQ0ywXGA&hl=en&ll=38.901906769884384%2C-77.01435253235564&z=6`}
+            className={classNames.headerLocation}
+          >
             {t('author.location')}
           </AppLink>
         </div>
@@ -101,7 +104,6 @@ export function IndexPageContent({ gmapUrl, mainImage, secondaryImage }) {
 }
 
 IndexPageContent.propTypes = {
-  gmapUrl: PropTypes.string,
   mainImage: PropTypes.object,
   secondaryImage: PropTypes.object,
 }
@@ -132,7 +134,6 @@ export const pageQuery = graphql`
   query IndexPageContent {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
-        gmapUrl
         mainImage {
           childImageSharp {
             fluid(maxWidth: 300, quality: 100) {
