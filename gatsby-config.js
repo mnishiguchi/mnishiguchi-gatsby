@@ -75,7 +75,7 @@ const flexsearchPlugin = {
         resolver: 'frontmatter.title',
         attributes: {
           encode: 'balance',
-          tokenize: 'strict',
+          tokenize: 'forward',
           threshold: 6,
           depth: 3,
         },
@@ -87,7 +87,7 @@ const flexsearchPlugin = {
         resolver: 'frontmatter.description',
         attributes: {
           encode: 'balance',
-          tokenize: 'strict',
+          tokenize: 'forward',
           threshold: 6,
           depth: 3,
         },

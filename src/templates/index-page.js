@@ -34,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: `1.2rem`,
   },
   headerLocation: {
-    color: '#bfe9d6',
     fontSize: `1.2rem`,
   },
   section: {
