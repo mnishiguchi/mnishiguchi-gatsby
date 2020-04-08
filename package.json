@@ -2,7 +2,7 @@
   "name": "mnishiguchi",
   "private": true,
   "scripts": {
-    "develop": "yarn clean && netlify dev",
+    "develop": "yarn clean && gatsby develop",
     "build": "yarn clean && gatsby build",
     "deploy": "netlify deploy --prod",
     "clean": "gatsby clean",
@@ -11,8 +11,9 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.9.9",
-    "gatsby": "^2.20.13",
-    "gatsby-image": "^2.3.1",
+    "downshift": "^5.0.6",
+    "gatsby": "^2.20.14",
+    "gatsby-image": "^2.3.2",
     "gatsby-plugin-canonical-urls": "^2.2.1",
     "gatsby-plugin-flexsearch": "^1.0.3",
     "gatsby-plugin-google-analytics": "^2.2.2",
@@ -52,7 +53,7 @@
     "uuid": "^7.0.3"
   },
   "devDependencies": {
-    "netlify-cli": "^2.40.0",
+    "netlify-cli": "^2.41.0",
     "prettier": "^2.0.4"
   }
 }
