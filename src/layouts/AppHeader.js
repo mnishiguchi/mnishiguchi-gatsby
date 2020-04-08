@@ -158,6 +158,17 @@ export default (props) => {
       </AppBar>
 
       {renderMobileMenu}
+
+      {/* A spacer that takes the navber height */}
+      <Toolbar />
+
+      {/* A decoration with the theme color */}
+      <div
+        style={{
+          background: '#071f31',
+          height: '8px',
+        }}
+      />
     </>
   )
 }

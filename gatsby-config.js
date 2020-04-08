@@ -138,7 +138,7 @@ module.exports = {
         short_name: `Masatoshi Nishiguchi`,
         start_url: `/`,
         background_color: `#072031`,
-        theme_color: `#41b883`,
+        theme_color: `#071f31`,
         display: `standalone`,
       },
     },

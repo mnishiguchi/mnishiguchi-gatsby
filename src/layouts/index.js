@@ -33,14 +33,6 @@ export default ({ children }) => {
 
       <AppHeader />
 
-      {/* A spacer for the content */}
-      <div
-        style={{
-          background: '#071f31',
-          height: '4.5rem',
-        }}
-      />
-
       {/* Use a container in each template not here so that they can be styled freely. */}
       {children}
 

@@ -16,12 +16,6 @@ import { ClearIcon, SearchIcon } from '../../components/MaterialIcons'
 
 const useStyles = makeStyles((theme) => ({
   root: {},
-  search: {
-    width: '100%',
-    // [theme.breakpoints.up('md')]: {
-    //   width: 'auto',
-    // },
-  },
   clearIcon: {
     color: theme.palette.warning.dark,
     background: 'none',
@@ -73,7 +67,7 @@ function SearchPage() {
             <>
               <FormControl
                 {...getRootProps({}, { suppressRefError: true })}
-                className={classNames.search}
+                fullWidth
               >
                 <Input
                   id="mn-SearchQueryInput"
@@ -99,7 +93,7 @@ function SearchPage() {
               </FormControl>
 
               {isOpen && query.length > MIN_QUERY_LENGTH && (
-                <List className={classNames.listRoot}>
+                <List className={classNames.listRoot} {...getMenuProps()}>
                   {suggestions.length === 0 ? (
                     <ListItem>
                       <ListItemText primary={`No suggestions for ${query}`} />
