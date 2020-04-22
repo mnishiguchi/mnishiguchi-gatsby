@@ -5,6 +5,7 @@ import GatsbyImage from 'gatsby-image' // https://www.gatsbyjs.org/packages/gats
 import { useTranslation } from 'react-i18next'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 import GlobalLayout from '../layouts/index'
 import AppContentContainer from '../components/AppContentContainer'
@@ -46,7 +47,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export function IndexPageContent({ mainImage, secondaryImage }) {
+export function IndexPageContent({
+  mainImage,
+  secondaryImage,
+  awsCertifiedLogo,
+}) {
   // https://react.i18next.com/latest/usetranslation-hook#usetranslation-params
   const { t } = useTranslation()
   const classNames = useStyles()
@@ -82,6 +87,7 @@ export function IndexPageContent({ mainImage, secondaryImage }) {
             <StackOverflowFlair theme="clean" width="300px" />
           </div>
         </section>
+
         <section className={classNames.section}>
           <div className={classNames.maxWidth600}>
             <div>{t('pages.home.hobbies')}</div>
@@ -89,12 +95,21 @@ export function IndexPageContent({ mainImage, secondaryImage }) {
             <div>{t('pages.home.etc')}</div>
           </div>
         </section>
+
         <section className={classNames.section}>
           <div className={classNames.maxWidth600}>
             <GatsbyImage
               fluid={secondaryImage.childImageSharp.fluid}
               alt="Masatoshi Nishiguchi at Node DC"
             />
+          </div>
+        </section>
+
+        <section className={classNames.section}>
+          <div className={classNames.maxWidth600}>
+            <OutboundLink href="https://www.certmetrics.com/amazon/public/badge.aspx?i=9&t=c&d=2020-01-03&ci=AWS01001895&dm=80">
+              <GatsbyImage fixed={awsCertifiedLogo.childImageSharp.fixed} />
+            </OutboundLink>
           </div>
         </section>
       </AppContentContainer>
@@ -110,11 +125,12 @@ IndexPageContent.propTypes = {
 function IndexPage({
   data: {
     markdownRemark: { frontmatter },
+    awsCertifiedLogo,
   },
 }) {
   return (
     <GlobalLayout>
-      <IndexPageContent {...frontmatter} />
+      <IndexPageContent {...frontmatter} awsCertifiedLogo={awsCertifiedLogo} />
     </GlobalLayout>
   )
 }
@@ -124,6 +140,7 @@ IndexPage.propTypes = {
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.object,
     }),
+    awsCertifiedLogo: PropTypes.object,
   }),
 }
 
@@ -146,6 +163,15 @@ export const pageQuery = graphql`
               ...GatsbyImageSharpFluid
             }
           }
+        }
+      }
+    }
+    awsCertifiedLogo: file(
+      relativePath: { eq: "aws-certified-logo_color-horz_360x60.jpg" }
+    ) {
+      childImageSharp {
+        fixed(width: 400) {
+          ...GatsbyImageSharpFixed
         }
       }
     }
