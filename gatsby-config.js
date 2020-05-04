@@ -1,4 +1,4 @@
-const siteUrl = 'https://mnishiguchi.com'
+const siteUrl = 'https://mnishiguchi-gatsby.com'
 
 // For sourcing data into your Gatsby application from your local filesystem.
 // https://www.gatsbyjs.org/packages/gatsby-source-filesystem/
